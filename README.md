@@ -1,4 +1,4 @@
-# Vue js Product CRUD
+# Vue Js Product CRUD
 
 
 ### Customize configuration
