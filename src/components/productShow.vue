@@ -16,10 +16,10 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>720$</td>
-                            <td>IPhone 7</td>
+                        <tr v-for="item in items">
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.price }}</td>
+                            <td>{{ item.name }}</td>
                             <td>
                                 <ul class="list-unstyled">
                                     <li>
@@ -43,6 +43,7 @@
     export default {
         name: "productShow"
     }
+
 </script>
 <style scoped>
     li

@@ -9,23 +9,21 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <form action="">
                                 <ul class="list-unstyled">
                                     <li>
                                         <label for="id">ID</label>
-                                        <input type="text" name="id" id="id" autocomplete="off">
+                                        <input type="text" v-model="id" id="id" autocomplete="off">
                                     </li>
                                     <li>
                                         <label for="price">Price</label>
-                                        <input type="text" name="price" id="price" autocomplete="off">
+                                        <input type="text" v-model="price" id="price" autocomplete="off">
                                     </li>
                                     <li>
                                         <label for="name">Name</label>
-                                        <input type="text" name="name" id="name" autocomplete="off">
+                                        <input type="text" v-model="name" id="name" autocomplete="off">
                                     </li>
-                                    <button class="btn btn-primary" type="submit">Add</button>
+                                    <button @click="add()" class="btn btn-primary" type="submit">Add</button>
                                 </ul>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -36,7 +34,23 @@
 
 <script>
     export default {
-        name: "products"
+        data() {
+            return {
+                id: '',
+                price: '',
+                name: '',
+                items: [{id:'1', price: '435 $',name: 'IPhone 4'}]
+            }
+        },
+        methods: {
+            add: function () {
+                this.items.push({
+                    id: this.id,
+                    price: this.price,
+                    name: this.name,
+                })
+            }
+        }
     }
 </script>
 <style scoped>
