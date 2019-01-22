@@ -22,7 +22,7 @@
                                         <label for="name">Name</label>
                                         <input type="text" :value="NEW_NAME" id="name" autocomplete="off" name="NEW_NAME">
                                     </li>
-                                    <button @click="ADD_PRODUCT" class="btn btn-primary" type="submit">Add</button>
+                                    <button @click="" class="btn btn-primary" type="submit">Add</button>
                                 </ul>
                         </div>
                     </div>
@@ -37,12 +37,6 @@
     export default {
         computed: {
             ...mapState(['NEW_ID', 'NEW_PRICE', 'NEW_NAME'])
-        },
-        /*computed: mapState(['NEW_ID', 'NEW_PRICE', 'NEW_NAME'])*/
-        methods: {
-            ADD_PRODUCT() {
-                return this.$store.commit('ADD_PRODUCT');
-            }
         }
     }
 </script>
