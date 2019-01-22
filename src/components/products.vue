@@ -12,17 +12,17 @@
                                 <ul class="list-unstyled">
                                     <li>
                                         <label for="id">ID</label>
-                                        <input type="text" v-model="id" id="id" autocomplete="off">
+                                        <input type="text" :value="NEW_ID" id="id" autocomplete="off" name="NEW_ID">
                                     </li>
                                     <li>
                                         <label for="price">Price</label>
-                                        <input type="text" v-model="price" id="price" autocomplete="off">
+                                        <input type="text" :value="NEW_PRICE" id="price" autocomplete="off" name="NEW_PRICE">
                                     </li>
                                     <li>
                                         <label for="name">Name</label>
-                                        <input type="text" v-model="name" id="name" autocomplete="off">
+                                        <input type="text" :value="NEW_NAME" id="name" autocomplete="off" name="NEW_NAME">
                                     </li>
-                                    <button @click="add()" class="btn btn-primary" type="submit">Add</button>
+                                    <button @click="ADD_PRODUCT" class="btn btn-primary" type="submit">Add</button>
                                 </ul>
                         </div>
                     </div>
@@ -33,22 +33,15 @@
 </template>
 
 <script>
+    import {mapState} from "vuex";
     export default {
-        data() {
-            return {
-                id: '',
-                price: '',
-                name: '',
-                items: [{id:'1', price: '435 $',name: 'IPhone 4'}]
-            }
+        computed: {
+            ...mapState(['NEW_ID', 'NEW_PRICE', 'NEW_NAME'])
         },
+        /*computed: mapState(['NEW_ID', 'NEW_PRICE', 'NEW_NAME'])*/
         methods: {
-            add: function () {
-                this.items.push({
-                    id: this.id,
-                    price: this.price,
-                    name: this.name,
-                })
+            ADD_PRODUCT() {
+                return this.$store.commit('ADD_PRODUCT');
             }
         }
     }

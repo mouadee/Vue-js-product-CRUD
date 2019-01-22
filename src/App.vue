@@ -8,6 +8,8 @@
 <script>
   import products from './components/products'
   import productShow from './components/productShow'
+
+
   export default {
     name: 'app',
     components: {

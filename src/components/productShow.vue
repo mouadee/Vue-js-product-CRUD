@@ -41,7 +41,12 @@
 
 <script>
     export default {
-        name: "productShow"
+        name: "productShow",
+        computed: {
+            items() {
+                return this.$store.state.items;
+            }
+        }
     }
 
 </script>
